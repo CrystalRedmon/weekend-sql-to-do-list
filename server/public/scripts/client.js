@@ -10,9 +10,13 @@ $(document).ready(onReady);
 
 function onReady(){
 //click listeners
-    $('body').on('click', onAddNewTask)
+    $('body').on('submit', onAddNewTask);
+
+    $('body').on('click', '.deleteBtn', onDeleteTask);
 //call GET task function
     getAllTasks();
+
+
 };
 
 
@@ -60,6 +64,29 @@ function onAddNewTask(evt){
 
 
 //function to delete task- DELETE
+function onDeleteTask(){
+
+    //grab taskID from delete button
+    let taskID = $(this).data('id')
+
+    $.ajax({
+        method: 'DELETE',
+        url: `/tasks/${taskID}`
+    })
+    .then(response=>{
+        console.log('Task deleted.')
+        getAllTasks();
+    })
+    .catch(error=>{
+        console.log('Delete failed', error);
+    });
+
+};
+
+
+
+
+
 
 
 //function to complete task- PUT
@@ -76,6 +103,7 @@ function render(){
         <tr>
         <td>${task.task}</td>
         <td>${task.complete}</td>
+        <td><button class=deleteBtn data-id=${task.id}> Delete </button></td>
         </tr>
         `)
     };

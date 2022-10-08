@@ -43,6 +43,35 @@ tasksRouter.post('/', (req, res)=>{
 });
 
 
+tasksRouter.delete('/:id', (req, res)=>{
+
+    console.log()
+
+    let sqlText = `DELETE FROM "tasks"
+                    WHERE "id" = $1;`;
+    
+    let sqlParams = [req.params.id];
+
+    pool.query(sqlText, sqlParams)
+    .then(response=>{
+        res.sendStatus(200);
+    })
+    .catch(error=>{
+        console.log('Delete failed', error);
+    });
+
+});
+
+
+
+
+
+
+
+
+
+
+
 
 
 
