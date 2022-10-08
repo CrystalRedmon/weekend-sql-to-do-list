@@ -124,14 +124,14 @@ function render(){
                 <tr class="table-primary" >
                 <td>${task.task}</td>
 
-                <td>
-                    <div  class="custom-control custom-switch">
+                <td  class="w-10">
+                    <div  class=" custom-control custom-switch">
                         <input type="checkbox" data-complete=${task.complete} class="completed-task custom-control-input" data-id=${task.id}>
                         <label class="custom-control-label" for="customSwitches"></label>
                     </div>
                 </td>
 
-                <td><button class=deleteBtn data-id=${task.id}> Delete </button></td>
+                <td><button class= "w-10 deleteBtn" data-id=${task.id}> Delete </button></td>
                 </tr>
                 `);
 
@@ -140,14 +140,14 @@ function render(){
             <tr class="table-success" >
             <td>${task.task}</td>
 
-            <td>
+            <td >
                 <div class="custom-control custom-switch">
                     <input type="checkbox" data-complete=${task.complete} class= "completed-task custom-control-input" data-id=${task.id} checked>
                     <label class="custom-control-label" for="customSwitch1"></label>
                 </div>
             </td>
 
-            <td><button class=deleteBtn data-id=${task.id}> Delete </button></td>
+            <td><button class="deleteBtn" data-id=${task.id}> Delete </button></td>
             </tr>
             `)
 
