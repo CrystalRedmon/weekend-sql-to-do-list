@@ -140,7 +140,7 @@ function render(){
 
                 <td><button class=deleteBtn data-id=${task.id}> Delete </button></td>
                 </tr>
-                `)
+                `);
 
         }else if (task.complete === true){
             $('#tableBody').append(`
@@ -148,10 +148,10 @@ function render(){
             <td>${task.task}</td>
 
             <td>
-            <div  class="custom-control custom-switch">
-                <input type="checkbox" data-complete=${task.complete}class="custom-control-input" data-id=${task.id} checked>
-            <label class="custom-control-label" for="customSwitch1"></label>
-          </div>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" data-complete=${task.complete} class= "completed-task custom-control-input" data-id=${task.id} checked>
+                    <label class="custom-control-label" for="customSwitch1"></label>
+                </div>
             </td>
 
             <td><button class=deleteBtn data-id=${task.id}> Delete </button></td>
@@ -167,8 +167,3 @@ function render(){
 
 }
 
-
-//<div data-id=${task.id} class="custom-control custom-switch">
-//                     <input type="checkbox" data-complete${task.complete} =class="completed-task custom-control-input" id="customSwitches">
-//                     <label class="custom-control-label" for="customSwitches"></label>
-//                 </div>
