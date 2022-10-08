@@ -22,8 +22,8 @@
       <link rel="stylesheet" href= "/mdb5-free-standard/css/mdb.min.css"/>
 </head>
 <body>
-    <header>
-        <h2>Weekend To Do List</h2>
+    <header class="p-5 text-center bg-light" >
+        <h1 class="mb-3" >Weekend To Do List</h1>
     </header>
 
     <main>
@@ -33,12 +33,12 @@
             <button id="submitBtn" >Submit</button>
         </form>
 
-        <table>
+        <table class="table">
             <thead>
                 <tr>
-                    <th>Task</th>
-                    <th>Complete?</th>
-                    <th></th> <!-- LEFT EMPTY. DELETE BUTTON WILL NEED A PLACE TO GO -->
+                    <th scope="col">Task</th>
+                    <th scope="col">Complete?</th>
+                    <th scope="col"></th> <!-- LEFT EMPTY. DELETE BUTTON WILL NEED A PLACE TO GO -->
                 </tr>
             </thead>
             <tbody id="tableBody"> <!--THIS IS WHERE THE NEW TASKS SHOULD BE ADDED AS TR WITH CHECKBOX AND BUTTON-->

@@ -119,7 +119,7 @@ function render(){
         if(task.complete === false){
 
         $('#tableBody').append(`
-                <tr>
+                <tr class="table-primary" >
                 <td>${task.task}</td>
 
                 <td>
@@ -135,7 +135,7 @@ function render(){
 
         }else if (task.complete === true){
             $('#tableBody').append(`
-            <tr>
+            <tr class="table-success" >
             <td>${task.task}</td>
 
             <td>
