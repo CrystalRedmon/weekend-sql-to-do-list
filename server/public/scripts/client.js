@@ -13,11 +13,22 @@ function onReady(){
     $('body').on('submit', onAddNewTask);
 
     $('body').on('click', '.deleteBtn', onDeleteTask);
-//call GET task function
-    getAllTasks();
+
+    $('body').on('change', '.completed-task', onCompleteTask);
+
+    getAllTasks();  
+
+};
+
+function onCompleteTask(){
+   console.log($(this).data('id'));
 
 
 };
+
+
+
+
 
 
 //function to get all tasks- GET
@@ -99,20 +110,51 @@ function render(){
     $('#tableBody').empty();
 
     for(let task of allTasks){
+
+        if(task.complete === false){
+
         $('#tableBody').append(`
-        <tr>
-        <td>${task.task}</td>
+                <tr>
+                <td>${task.task}</td>
 
-        <td>
-            <div class="custom-control custom-switch">
-                <input type="checkbox" data-complete${task.complete} =class="custom-control-input" id="customSwitches">
-                <label class="custom-control-label" for="customSwitches"></label>
-            </div>
-        </td>
+                <td>
+                    <div  class="custom-control custom-switch">
+                        <input type="checkbox" data-complete=${task.complete} class="completed-task custom-control-input" data-id=${task.id}>
+                        <label class="custom-control-label" for="customSwitches"></label>
+                    </div>
+                </td>
 
-        <td><button class=deleteBtn data-id=${task.id}> Delete </button></td>
-        </tr>
-        `)
+                <td><button class=deleteBtn data-id=${task.id}> Delete </button></td>
+                </tr>
+                `)
+
+        }else if (task.complete === true){
+            $('#tableBody').append(`
+            <tr>
+            <td>${task.task}</td>
+
+            <td>
+            <div  class="custom-control custom-switch">
+                <input type="checkbox" data-complete=${task.complete}class="custom-control-input" data-id=${task.id} checked>
+            <label class="custom-control-label" for="customSwitch1"></label>
+          </div>
+            </td>
+
+            <td><button class=deleteBtn data-id=${task.id}> Delete </button></td>
+            </tr>
+            `)
+
+        }
+
+
+
+        
     };
 
 }
+
+
+//<div data-id=${task.id} class="custom-control custom-switch">
+//                     <input type="checkbox" data-complete${task.complete} =class="completed-task custom-control-input" id="customSwitches">
+//                     <label class="custom-control-label" for="customSwitches"></label>
+//                 </div>
