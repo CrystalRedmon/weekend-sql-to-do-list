@@ -1,9 +1,30 @@
-# Project Name
+# weekend-sql-to-do-list
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+
 
 ## Description
+Duration: 2 days
 
-Your project description goes here. What problem did you solve? How did you solve it?
+This app allows you to input and track weekend tasks. Once you input and submit your new weekend task it is added to your list of things to do. When you complete the task check the complete box to move it to the bottom of the list. 
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+## Screenshot
+
+![sample](/images/weekend1.png)
+![sample](/images/weekend3.png)
+
+## Usage 
+1. Use text box to input new task and submit task.
+2. Check the complete checkbox as you finsih tasks. When the check the box the task will turn green and move to the bottom of the list.
+3. Click the delete button when you are ready to delete the task. 
+
+
+## Built With
+- HTML
+- JavaScript
+- jQuery
+- Node
+- MDB
+
+## Acknowledgement
+Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. 
+
