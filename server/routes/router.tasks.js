@@ -53,10 +53,10 @@ tasksRouter.delete('/:id', (req, res)=>{
     let sqlParams = [req.params.id];
 
     pool.query(sqlText, sqlParams)
-    .then(response=>{
-        res.sendStatus(200);
-    })
-    .catch(error=>{
+        .then(response=>{
+            res.sendStatus(200);
+     })
+        .catch(error=>{
         console.log('Delete failed', error);
     });
 
@@ -64,7 +64,22 @@ tasksRouter.delete('/:id', (req, res)=>{
 
 
 
+tasksRouter.put('/:id', (req, res)=>{
+    console.log(req.params.id);
 
+    let sqlText = `UPDATE "tasks" 
+                    SET "complete" = NOT "complete"
+                    WHERE "id" = $1;`;
+
+    pool.query(sqlText, [req.params.id])    
+        .then(response=>{
+            res.sendStatus(200);
+        }) 
+        .catch(error=>{
+            console.log('Change not made', error);
+        });           
+
+});
 
 
 

@@ -22,6 +22,20 @@ function onReady(){
 
 function onCompleteTask(){
    console.log($(this).data('id'));
+   console.log($(this).data('complete'));
+
+   let taskID = $(this).data('id')
+
+   $.ajax({
+    method:'PUT',
+    url: `/tasks/${taskID}`,
+   })
+   .then(response=>{
+        getAllTasks();
+   })
+   .catch(error=>{
+        console.log('Change not made', error);
+   });
 
 
 };
