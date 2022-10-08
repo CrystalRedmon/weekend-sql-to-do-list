@@ -61,6 +61,8 @@ function onAddNewTask(evt){
     .then(response=>{
         console.log(response);
         getAllTasks();
+        $('#inputForm').val('');
+
     })
     .catch(error=>{
         console.log("Error, new task not added", error)
