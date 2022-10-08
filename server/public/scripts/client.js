@@ -20,28 +20,6 @@ function onReady(){
 
 };
 
-function onCompleteTask(){
-   console.log($(this).data('id'));
-   console.log($(this).data('complete'));
-
-   let taskID = $(this).data('id')
-
-   $.ajax({
-    method:'PUT',
-    url: `/tasks/${taskID}`,
-   })
-   .then(response=>{
-        getAllTasks();
-   })
-   .catch(error=>{
-        console.log('Change not made', error);
-   });
-
-
-};
-
-
-
 
 
 
@@ -62,6 +40,8 @@ function getAllTasks(){
     });
 
 };
+
+
 
 //function to add task- POST
 function onAddNewTask(evt){
@@ -109,16 +89,27 @@ function onDeleteTask(){
 };
 
 
-
-
-
-
-
 //function to complete task- PUT
+function onCompleteTask(){
 
+    let taskID = $(this).data('id')
+ 
+    $.ajax({
+     method:'PUT',
+     url: `/tasks/${taskID}`,
+    })
+    .then(response=>{
+         getAllTasks();
+    })
+    .catch(error=>{
+         console.log('Change not made', error);
+    });
+ 
+ 
+ };
 
+ 
 //render function
-
 function render(){
 
     $('#tableBody').empty();
