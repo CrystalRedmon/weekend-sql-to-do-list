@@ -102,7 +102,14 @@ function render(){
         $('#tableBody').append(`
         <tr>
         <td>${task.task}</td>
-        <td>${task.complete}</td>
+
+        <td>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" data-complete${task.complete} =class="custom-control-input" id="customSwitches">
+                <label class="custom-control-label" for="customSwitches"></label>
+            </div>
+        </td>
+
         <td><button class=deleteBtn data-id=${task.id}> Delete </button></td>
         </tr>
         `)
