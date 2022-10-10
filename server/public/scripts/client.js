@@ -2,21 +2,21 @@
 
 console.log('I am in client');
 
-let allTasks 
+let allTasks
 
 $(document).ready(onReady);
 
 
 
-function onReady(){
-//click listeners
+function onReady() {
+    //click listeners
     $('body').on('submit', onAddNewTask);
 
     $('body').on('click', '.deleteBtn', onDeleteTask);
 
     $('body').on('change', '.completed-task', onCompleteTask);
 
-    getAllTasks();  
+    getAllTasks();
 
 };
 
@@ -24,27 +24,27 @@ function onReady(){
 
 
 //function to get all tasks- GET
-function getAllTasks(){
+function getAllTasks() {
 
     $.ajax({
-        method:'GET',
+        method: 'GET',
         url: '/tasks'
     })
-    .then(response=> {
-        allTasks = response;
-        console.log(allTasks);
-        render();
-    })
-    .catch(error=>{
-        console.log('Unable to get tasks', error);
-    });
+        .then(response => {
+            allTasks = response;
+            console.log(allTasks);
+            render();
+        })
+        .catch(error => {
+            console.log('Unable to get tasks', error);
+        });
 
 };
 
 
 
 //function to add task- POST
-function onAddNewTask(evt){
+function onAddNewTask(evt) {
 
     evt.preventDefault();
 
@@ -52,26 +52,26 @@ function onAddNewTask(evt){
     let newTask = {
         task: $('#inputForm').val()
     }
-    
+
     $.ajax({
         method: 'POST',
         url: '/tasks',
         data: newTask
     })
-    .then(response=>{
-        console.log(response);
-        getAllTasks();
-        $('#inputForm').val('');
+        .then(response => {
+            console.log(response);
+            getAllTasks();
+            $('#inputForm').val('');
 
-    })
-    .catch(error=>{
-        console.log("Error, new task not added", error)
-    })
+        })
+        .catch(error => {
+            console.log("Error, new task not added", error)
+        })
 }
 
 
 //function to delete task- DELETE
-function onDeleteTask(){
+function onDeleteTask() {
 
     //grab taskID from delete button
     let taskID = $(this).data('id')
@@ -80,47 +80,47 @@ function onDeleteTask(){
         method: 'DELETE',
         url: `/tasks/${taskID}`
     })
-    .then(response=>{
-        console.log('Task deleted.')
-        getAllTasks();
-    })
-    .catch(error=>{
-        console.log('Delete failed', error);
-    });
+        .then(response => {
+            console.log('Task deleted.')
+            getAllTasks();
+        })
+        .catch(error => {
+            console.log('Delete failed', error);
+        });
 
 };
 
 
 //function to complete task- PUT
-function onCompleteTask(){
+function onCompleteTask() {
 
     let taskID = $(this).data('id')
- 
-    $.ajax({
-     method:'PUT',
-     url: `/tasks/${taskID}`,
-    })
-    .then(response=>{
-         getAllTasks();
-    })
-    .catch(error=>{
-         console.log('Change not made', error);
-    });
- 
- 
- };
 
- 
+    $.ajax({
+        method: 'PUT',
+        url: `/tasks/${taskID}`,
+    })
+        .then(response => {
+            getAllTasks();
+        })
+        .catch(error => {
+            console.log('Change not made', error);
+        });
+
+
+};
+
+
 //render function
-function render(){
+function render() {
 
     $('#tableBody').empty();
 
-    for(let task of allTasks){
+    for (let task of allTasks) {
 
-        if(task.complete === false){
+        if (task.complete === false) {
 
-        $('#tableBody').append(`
+            $('#tableBody').append(`
                 <tr class="table-primary" >
                 <td>${task.task}</td>
 
@@ -135,7 +135,7 @@ function render(){
                 </tr>
                 `);
 
-        }else if (task.complete === true){
+        } else if (task.complete === true) {
             $('#tableBody').append(`
             <tr class="table-success" >
             <td>${task.task}</td>
@@ -155,7 +155,7 @@ function render(){
 
 
 
-        
+
     };
 
 }

@@ -1,52 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <script src="scripts/jquery.js"></script>
-    <script src="scripts/client.js" ></script>
+    <script src="scripts/client.js"></script>
     <title>Weekend-Sql-To-Do-List</title>
-        <!-- Font Awesome -->
-        <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-      />
-      <!-- Google Fonts Roboto -->
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
-      />
-      <!-- MDB "css/mdb.min.css"-->
-      <link rel="stylesheet" href= "/mdb5-free-standard/css/mdb.min.css"/>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+    <!-- MDB "css/mdb.min.css"-->
+    <link rel="stylesheet" href="/mdb5-free-standard/css/mdb.min.css" />
 </head>
+
 <body>
-    <header class="p-5 text-center bg-light" >
-        <h1 class="mb-3" >Weekend To Do List</h1>
+    <header class="p-5 text-center bg-light">
+        <h1 class="mb-3">Weekend To Do List</h1>
     </header>
 
-    <main class="text-center w-75 p-3 mx-auto" ></mainclass>
+    <main class="text-center w-75 p-3 mx-auto">
+        </mainclass>
 
-        <form class="mt-5 " >
+        <form class="mt-5 ">
             <input class="mb-4 w-50" id="inputForm" type="text" placeholder="Add A New Task">
-            <button id="submitBtn" >Submit</button>
+            <button id="submitBtn">Submit</button>
         </form>
 
-        <div class="rounded-6 border border-dark mt-5" >
-        <table class="table"  >
-            <thead>
-                <tr>
-                    <th scope="col">Task</th>
-                    <th scope="col">Complete?</th>
-                    <th scope="col"></th> <!-- LEFT EMPTY. DELETE BUTTON WILL NEED A PLACE TO GO -->
-                </tr>
-            </thead>
-            <tbody id="tableBody"> <!--THIS IS WHERE THE NEW TASKS SHOULD BE ADDED AS TR WITH CHECKBOX AND BUTTON-->
-               
-            </tbody>
+        <div class="rounded-6 border border-dark mt-5">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Task</th>
+                        <th scope="col">Complete?</th>
+                        <th scope="col"></th> <!-- LEFT EMPTY. DELETE BUTTON WILL NEED A PLACE TO GO -->
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!--THIS IS WHERE THE NEW TASKS SHOULD BE ADDED AS TR WITH CHECKBOX AND BUTTON-->
 
-        </table>
+                </tbody>
+
+            </table>
 
         </div>
 
@@ -54,7 +53,8 @@
 
 
 
-    </main>    
+    </main>
 
 </body>
+
 </html>
